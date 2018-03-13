@@ -1,2 +1,2 @@
-this is content.
+\[前言\]
 
