@@ -176,10 +176,59 @@ java.util
 
 ## 拓展
 
-工厂模式在很多开源框架中都有使用，因为它给程序带来了较大的扩展性。例如在Spring框架中IoC容器的初始化就是使用了工厂模式。
+工厂模式在很多开源框架中都有使用，因为它给程序带来了较大的扩展性。例如在Spring框架中c创建bean对象的过程就是使用了工厂模式的一种——简单工厂模式，这在上面有提过，通过传递一个参数返回应对的实例对象，不过在Spring中当然不是switch-case判断，而是使用了反射来创建对象实例。
 
+```java
+    ApplicationContext application = new ClassPathXmlApplicationContext("applicationContext.xml");
+    Product product = (ConcreteProduct) application.getBean("concreteProduct");
+```
+<div align=center>
+    <img src="spring_bean_factory.png"/>
+</div>
+Spring的源码很复杂各种类继承引用，这里就不再深入了解，有兴趣的可以查阅Spring源码找寻其中的设计模式。
 
+## Tips
 
+关于工厂模式有几个比较模糊的概念：**工厂方法模式**、**简单工厂模式**、**抽象工厂模式**、**静态工厂方法**。
 
+本文所述**工厂模式**指的是**工厂方法模式**。**简单工厂模式**并未列入23种设计模式之中，它与**工厂方法模式**的区别上文已做解释。有关**抽象工厂模式**会在下一节介绍。
 
+需要注意的是——**静态工厂方法**。
 
+静态工厂方法在*《Effective Java》*中的开篇就大力推崇，它和工厂模式的目的都是创建实例对象。对于静态工厂方法，通常类的自身提供一个静态方法用于实例化（当然也可以是一个工具类例如`Collections`），从而避免使用构造器。例如Java源码中的Boolean包装类。
+
+```java
+public static Boolean valueOf(boolean b) {
+    return (b ? TRUE : FALSE);
+}
+```
+Boolean自身就提供了一个工厂方法用于返回一个Boolean对象。
+
+对应到前面提到的创建一个具体产品的例子，如果ConcreteProduct提供了一个静态工厂方法，则变为以下形态。
+
+```java
+Product product = ConcreteProduct.getInstance();
+```
+这是一个类自身提供了一个静态方法用于对自身的实例化，它取代了new构造器的方式，而这是与工厂模式利用第三方类来创建对象的不同。取代构造器创建对象实例可以有几个好处：
+
+* **可以自由的对方法进行命名。**命名是门学问，命的好事半功倍，命得差真的要跪。而构造器没法进行命名。
+
+* **不必每次都创建一个对象。**这实际上就是熟悉的单例模式了，每次获取对象实例的时候都是同一个。
+
+静态工厂方法并不一定都是由类的自身提供，还有可能是工具类，例如`Collections`。
+
+Collections类中另外还实现了几十种集合供我们使用，但这些集合都不能通过直接new的方式获取，而是在Collections的内部提供了静态工厂方法，不能直接实例化大大减少了API的数量，如果几十种集合全部能直接实例化，各种API各种概念都是庞大的工作量，而使用静态工厂方法通过命名则很好的解决了这一个痛点。
+
+```java
+Collections.synchronizedMap(new HashMap<>());
+Collections.synchronizedList(new ArrayList<>());
+Collections.unmodifiableMap(new HashMap<>());
+Collections.unmodifiableList(new ArrayList<>());
+······
+```
+
+Collections通过静态工厂方法导出集合方式不仅仅在于API数量的减小，这就是静态工厂方法的第三个有点：
+
+* **它能返回原有返回类型的子类型。**
+
+以`Collections.synchronizedList`举例，其内部方法返回的是List类型，而它的真正子类型则是`SynchronizedList`，这在其Collections作为内部类实现。这样我们不必暴露出SynchronizedList，也就是隐藏了我们真正实现的类，但又可以返回真正的对象，这个意义所在就是实现了基于接口编程。
