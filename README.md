@@ -1,5 +1,5 @@
 # 0. 前言
-经典的23种设计模式由GoF（Gang of Four）“四大金刚”由Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides在1995年出版的《Design Patterns》提出。这本书，或者说这23种设计模式的提出对于面向对象编程有着深远影响。
+经典的23种设计模式由GoF（Gang of Four：Erich Gamma、Richard Helm、Ralph Johnson 和 John Vlissides）“四大金刚”在1995年出版的《Design Patterns》提出。这本书，或者说这23种设计模式的提出对于面向对象编程有着深远影响。
 
 笔者在刚参加工作时写的第一个博客系列就是对于23种设计模式的理解，时至今日已近两年，对于很多开发中不常用的设计模式已经模糊。市面上有关设计模式的书最畅销的应该属《Head First:设计模式》，我当初则是看的C#版本的《大话设计模式》，并用Java实现了一遍。这两本书对于设计模式的讲解都很生动形象，《大话设计模式》全文的主线是一个菜鸟和一个大牛之间的对话，从对话中引申出设计模式在其中如何应用。
 
