@@ -116,7 +116,7 @@ public class ConcreteProductFactory {
     }
 }
 ```
-最初的```Product product = new ConcreteProduct()```就演变成了如下代码。
+最初的`Product product = new ConcreteProduct()`就演变成了如下代码。
 
 ```java
 IFactory factory = new ConcreteProductFactory();
@@ -134,6 +134,22 @@ Product product = factory.createProduct();
 在实际编码中，往往来得快来得爽的代码大多都会埋下未知的隐患。
 
 ## Java源码中的工厂模式
+
+在Java源码中Iterator迭代器的实例对象创建使用的就是工厂模式，所以这里举例Iterator探寻JDK作者们是如何将工厂模式应用到Java源码中的。
+
+由于Java源码的多样性和复杂性，有的看起来并不那么像一个“标准”的设计模式，所以笔者在这里会对一些类进行简化，例如省去泛型，或将类的继承关系简化，或在分析源码结构时先将内部类剥离出来等等。
+
+先来一段创建Iterator迭代器的代码。
+
+```java
+//创建Iterator迭代器
+Collection collection = new ArrayList();
+Iterator iterator = collection.iterator();
+//工厂模式
+IFactory factory = new ConcreteFactory();
+Product product = factory.createProduct();
+```
+这和介绍中的工厂模式如出一辙（尽管实际上我们可能并不会这么写，`List list = new ArrayList()`的方式更常用）。
 
 
 
