@@ -233,7 +233,6 @@ Collections通过静态工厂方法导出集合方式不仅仅在于API数量的
 * **它能返回原有返回类型的子类型。**
 
 以`Collections.synchronizedList`举例，其内部方法返回的是List类型，而它的真正子类型则是`SynchronizedList`，这在其Collections作为内部类实现。这样我们不必暴露出SynchronizedList，也就是隐藏了我们真正实现的类，但又可以返回真正的对象，这个意义所在就是实现了基于接口编程。
-
 <div align=center>
     <img src="../../ad.png"/>
 </div>

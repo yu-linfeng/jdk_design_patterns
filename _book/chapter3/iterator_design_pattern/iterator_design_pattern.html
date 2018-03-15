@@ -1,0 +1,590 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.4 迭代子模式 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../chain_design_pattern/chain_design_pattern.html" />
+    
+    
+    <link rel="prev" href="../observer_design_pattern/observer_design_pattern.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    0. 前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../chapter1/">
+            
+                <a href="../../chapter1/">
+            
+                    
+                    1. 创建型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../chapter1/factory_design_pattern/factory_design_pattern.html">
+            
+                <a href="../../chapter1/factory_design_pattern/factory_design_pattern.html">
+            
+                    
+                    1.1 工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../chapter1/abstract_factory_design_pattern/abstract_factory_design_pattern.html">
+            
+                <a href="../../chapter1/abstract_factory_design_pattern/abstract_factory_design_pattern.html">
+            
+                    
+                    1.2 抽象工厂模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../chapter1/singleton_design_pattern/singleton_design_pattern.html">
+            
+                <a href="../../chapter1/singleton_design_pattern/singleton_design_pattern.html">
+            
+                    
+                    1.3 单例模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../../chapter1/builder_design_pattern/builder_design_pattern.html">
+            
+                <a href="../../chapter1/builder_design_pattern/builder_design_pattern.html">
+            
+                    
+                    1.4 建造者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../../chapter1/prototype_design_pattern/prototype_design_pattern.html">
+            
+                <a href="../../chapter1/prototype_design_pattern/prototype_design_pattern.html">
+            
+                    
+                    1.5 原型模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../chapter2/">
+            
+                <a href="../../chapter2/">
+            
+                    
+                    2. 结构型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../chapter2/adapter_design_pattern/adapter_design_pattern.html">
+            
+                <a href="../../chapter2/adapter_design_pattern/adapter_design_pattern.html">
+            
+                    
+                    2.1 适配器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../chapter2/decorator_design_pattern/decorator_design_pattern.html">
+            
+                <a href="../../chapter2/decorator_design_pattern/decorator_design_pattern.html">
+            
+                    
+                    2.2 装饰器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../../chapter2/proxy_design_pattern/proxy_design_pattern.html">
+            
+                <a href="../../chapter2/proxy_design_pattern/proxy_design_pattern.html">
+            
+                    
+                    2.3 代理模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../../chapter2/appearance_design_pattern/appearance_design_pattern.html">
+            
+                <a href="../../chapter2/appearance_design_pattern/appearance_design_pattern.html">
+            
+                    
+                    2.4 外观模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../../chapter2/bridge_design_pattern/bridge_design_pattern.html">
+            
+                <a href="../../chapter2/bridge_design_pattern/bridge_design_pattern.html">
+            
+                    
+                    2.5 桥接模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../../chapter2/portfolio_design_pattern/portfolio_design_pattern.html">
+            
+                <a href="../../chapter2/portfolio_design_pattern/portfolio_design_pattern.html">
+            
+                    
+                    2.6 组合模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../../chapter2/flyweight_design_pattern/flyweight_design_pattern.html">
+            
+                <a href="../../chapter2/flyweight_design_pattern/flyweight_design_pattern.html">
+            
+                    
+                    2.7 享元模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    3. 行为型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../strategy_design_pattern/strategy_design_pattern.html">
+            
+                <a href="../strategy_design_pattern/strategy_design_pattern.html">
+            
+                    
+                    3.1 策略模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../template_method_design_pattern/template_method_design_pattern.html">
+            
+                <a href="../template_method_design_pattern/template_method_design_pattern.html">
+            
+                    
+                    3.2 模板方法模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../observer_design_pattern/observer_design_pattern.html">
+            
+                <a href="../observer_design_pattern/observer_design_pattern.html">
+            
+                    
+                    3.3 观察者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.4" data-path="iterator_design_pattern.html">
+            
+                <a href="iterator_design_pattern.html">
+            
+                    
+                    3.4 迭代子模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../chain_design_pattern/chain_design_pattern.html">
+            
+                <a href="../chain_design_pattern/chain_design_pattern.html">
+            
+                    
+                    3.5 责任链模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../command_design_pattern/command_design_pattern.html">
+            
+                <a href="../command_design_pattern/command_design_pattern.html">
+            
+                    
+                    3.6 命令模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../memo_design_pattern/memo_design_pattern.html">
+            
+                <a href="../memo_design_pattern/memo_design_pattern.html">
+            
+                    
+                    3.7 备忘录模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../status_design_pattern/status_design_pattern.html">
+            
+                <a href="../status_design_pattern/status_design_pattern.html">
+            
+                    
+                    3.8 状态模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../visitor_design_pattern/visitor_design_pattern.html">
+            
+                <a href="../visitor_design_pattern/visitor_design_pattern.html">
+            
+                    
+                    3.9 访问者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../intermediary_design_pattern/intermediary_design_pattern.html">
+            
+                <a href="../intermediary_design_pattern/intermediary_design_pattern.html">
+            
+                    
+                    3.10 中介者模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../interpreter_design_pattern/interpreter_design_pattern.html">
+            
+                <a href="../interpreter_design_pattern/interpreter_design_pattern.html">
+            
+                    
+                    3.11 解释器模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >3.4 迭代子模式</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="34-&#x8FED;&#x4EE3;&#x5B50;&#x6A21;&#x5F0F;">3.4 &#x8FED;&#x4EE3;&#x5B50;&#x6A21;&#x5F0F;</h1>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../observer_design_pattern/observer_design_pattern.html" class="navigation navigation-prev " aria-label="Previous page: 3.3 观察者模式">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../chain_design_pattern/chain_design_pattern.html" class="navigation navigation-next " aria-label="Next page: 3.5 责任链模式">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.4 迭代子模式","level":"1.4.4","depth":2,"next":{"title":"3.5 责任链模式","level":"1.4.5","depth":2,"path":"chapter3/chain_design_pattern/chain_design_pattern.md","ref":"chapter3/chain_design_pattern/chain_design_pattern.md","articles":[]},"previous":{"title":"3.3 观察者模式","level":"1.4.3","depth":2,"path":"chapter3/observer_design_pattern/observer_design_pattern.md","ref":"chapter3/observer_design_pattern/observer_design_pattern.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter3/iterator_design_pattern/iterator_design_pattern.md","mtime":"2018-03-14T03:28:41.868Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-03-15T09:26:48.938Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
