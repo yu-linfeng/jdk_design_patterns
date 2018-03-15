@@ -9,6 +9,7 @@
 ## 介绍
 
 对于工厂方法，首先是需要定义一个用于产生具体对象的工厂接口，其次还有一个具体对象的公共父接口、抽象类。产生具体对象是工厂接口的子类，注意是工厂接口的子类。接下来先用UML类图来直观感受下工厂模式。 
+
 <div align="center">
 	<img src="factory_design_pattern.png"/>
 </div>
@@ -153,9 +154,11 @@ Product product = factory.createProduct();
 这和介绍中的工厂模式如出一辙（尽管实际上我们可能并不会这么写，`List list = new ArrayList()`的方式更常用）。
 
 所以我们能依葫芦画瓢照着工厂模式的UML类图画出Iterator工厂模式的类图。
+
 <div align=center>
     <img src="jdk_iterator_factory.png"/>
 </div>
+
 事实上在Java源码中并没有一个叫ArrayListItr的实现类，Iterator的实现类在ArrayList内部，也就是说在ArrayList有一个内部类。如果我们将Iterator的实现类单独定义，代码的包结构如下所示。
 ```
 factory
@@ -183,9 +186,11 @@ java.util
     ApplicationContext application = new ClassPathXmlApplicationContext("applicationContext.xml");
     Product product = (ConcreteProduct) application.getBean("concreteProduct");
 ```
+
 <div align=center>
     <img src="spring_bean_factory.png"/>
 </div>
+
 Spring的源码很复杂各种类继承引用，这里就不再深入了解，有兴趣的可以查阅Spring源码找寻其中的设计模式。
 
 ## Tips
