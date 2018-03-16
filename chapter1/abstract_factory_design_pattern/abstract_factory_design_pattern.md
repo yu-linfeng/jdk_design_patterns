@@ -39,5 +39,43 @@ ICpu cpu = factory.createCpu();
 
 抽象工厂模式看似只是在工厂中新增了一个方法，但笔者认为这只是表象，它和工厂方法模式的应用场景是不一样的。
 
-Java源码中同样有抽象工厂模式的设计，在`java.sql`包中对于数据库的创建连接就是采用的抽象工厂模式。
+在Java源码中通过JDBC可以连接操作不同的数据库，它的设计同样是基于抽象工厂模式。严格来讲，它更属于是工厂模式，至于抽象工厂模式和工厂模式在后面会提到。
 
+对于使用JDBC连接数据库，首先会经历下面两个阶段：加载、连接。
+
+```java
+Class.forName("com.mysql.jdbc.Driver");		//加载数据库驱动
+Connection connection = DriverManager.getConnection("url", "username", "password");	//连接相应的数据库
+```
+
+DriverManager#getConnection是我们在**1.1工厂模式**一节的**Tips**中提到的静态工厂方法，它用于创建并返回一个`Connection`数据连接。在其内部调用了一个私有的`getConnection(String, java.util.Properties, Class<?>)`重载方法。在这个私有`getConnection`方法中会遍历已经注册数据库驱动，也就是我们加载的MySQL数据库驱动`Class.forName("com.mysql.jdbc.Driver")`。
+
+```java
+//private static Connection getConnection(String url, java.util.Properties info, Class<?> caller)
+···
+for(DriverInfo aDriver : registeredDrivers)
+···
+	Connection con = aDriver.driver.connect(url, info);
+```
+
+代码中`aDriver.driver`返回的正是MySQL实现的具体驱动，也就是一个具体的子工厂——`com.mysql.jdbc.Driver`，它的抽象工厂接口则是Java提供的——`com.sql.Driver`。
+
+分析到这个地方，我们已经能画出它的UML类图了。
+
+<div align=center>
+	<img src="jdk_abstract_factory_design_pattern.png"/>
+</div>
+
+实际上MySQL对于它的数据库驱动设计不止向上图这么简单，在类的继承关系上还有很多，包括它对于`java.sql.Connection`的实现也不止一个。但我们剥离出其他的设计考虑，其本质上还是一个抽象工厂模式。这个图和引子中的不同电脑品牌有了很好的呼应。因为数据库本身也不止一种，还有Oracle、SqlServer等等，Java定义了一种JDBC连接数据库的方式和相应的接口，各个厂商只需要实现它即可。客户端在选择使用哪种数据库的时候不用关心具体方法的调用或者返回哪一个类，只需要使用工厂中提供的工厂方法即可。
+
+## Tips
+
+有关抽象工厂模式和工厂模式（指工厂方法模式），看似只是工厂中定义多个方法返回多个对象和定义一个方法返回一个对象的区别。从代码结构上确实如此，工厂模式是抽象工厂模式也没错，只是从概念上来讲抽象工厂模式更为抽象，更为一般。而工厂模式是抽象工厂模式的特殊形式。这种概念的定义在数学中很常见，定义的概念往往有**一般地，什么什么，称之为什么定理；特殊地，什么什么，称之为什么定理。**笔者认为不必过于考究其中的概念。
+
+如果工厂所产生的产品有多个子产品组成（例如电脑、汽车），此时可以考虑抽象工厂模式；如果工厂只生产一种不可再划分的产品（例如CPU、轮子），此时可以考虑工厂模式。
+
+再简单点，复杂对象使用较为复杂的抽象工厂模式；简单对象使用较为简单的工厂模式。
+
+<div align=center>
+    <img src="../../ad.png"/>
+</div>
