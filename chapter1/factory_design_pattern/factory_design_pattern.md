@@ -48,7 +48,7 @@ Product product = Factory.createProduct('concreteProduct');
 ```java
 /**
  * 简单工厂模式
- * Created by Kevin on 2018/3/14.
+ * Created by Kevin.
  */
 public class Factory {
     public static Product createProduct(String product) {
@@ -70,7 +70,7 @@ public class Factory {
 ```java
 /**
  * 简单工厂模式，新增case判断语句
- * Created by Kevin on 2018/3/14.
+ * Created by Kevin.
  */
 public class Factory {
     public static Product createProduct(String product) {
@@ -98,7 +98,7 @@ public class Factory {
 ```java
 /**
  * 工厂模式，工厂接口
- * Created by Kevin on 2018/3/14.
+ * Created by Kevin.
  */
 public interface IFactory {
     Product createProduct();
@@ -110,7 +110,7 @@ public interface IFactory {
 ```java
 /**
  * 工厂模式，具体工厂类
- * Created by Kevin on 2018/3/14.
+ * Created by Kevin.
  */
 public class ConcreteProductFactory {
     public Product createProduct() {
