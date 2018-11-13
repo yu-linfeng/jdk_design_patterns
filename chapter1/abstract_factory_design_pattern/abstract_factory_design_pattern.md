@@ -75,7 +75,3 @@ for(DriverInfo aDriver : registeredDrivers)
 如果工厂所产生的产品有多个子产品组成（例如电脑、汽车），此时可以考虑抽象工厂模式；如果工厂只生产一种不可再划分的产品（例如CPU、轮子），此时可以考虑工厂模式。
 
 再简单点，复杂对象使用较为复杂的抽象工厂模式；简单对象使用较为简单的工厂模式。
-
-<div align=center>
-    <img src="../../ad.png"/>
-</div>
